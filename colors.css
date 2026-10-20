@@ -1,0 +1,18 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    background: rgb(25 25 25 / 100%);
+    color: rgb(175 175 175 / 100%);
+    h1, h2, th {
+        color: rgb(240 240 240 / 100%)
+    };
+    p {
+        color: rgb(175 175 175 / 100%);
+    }
+    [href] {
+        color: rgb(255, 131, 16);
+    }
+}
+
+svg {
+    fill:rgb(255, 131, 16);
+}

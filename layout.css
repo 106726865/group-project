@@ -1,5 +1,5 @@
 body {
-  max-width: 70rem;
+  width: 80%;
   margin: 0 auto;
   padding: 1rem;
 }
@@ -150,14 +150,13 @@ footer {
 .landing-main {
   max-width: none;
   margin: 0;
-  padding: 1.5rem;
+  padding: 1.5rem 0;
 }
 
 .landing-hero {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   align-items: start;
-  gap: 2rem;
   min-height: 24rem;
 }
 
@@ -169,17 +168,39 @@ footer {
 }
 
 .landing-tagline {
-  max-width: 32rem;
-  padding: 0.5rem 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5rem 1.5rem;
 }
 
 .landing-tagline p {
   margin-top: 0;
+  font-size: clamp(1.5rem, 4vw, 3.5rem);
+}
+
+.landing-tagline h2 {
+  margin-top: 0.5rem;
+  font-size: clamp(3rem, 10vw, 9rem);
+  line-height: 0.98;
+  text-align: right;
 }
 
 .landing-details {
   max-width: 60rem;
   margin: 3rem auto;
+  padding: 0 1.5rem;
+  font-size: 1.5em;
+}
+
+table {
+  width: 100%;
+  margin-inline: auto;
+}
+
+table,
+table th,
+table td {
+  border: 1px solid #fff;
 }
 
 @media (max-width: 40rem) {
@@ -214,4 +235,16 @@ footer {
     object-fit: contain;
     object-position: left;
   }
+}
+
+nav a {
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.landing-info-bar {
+  font-size: 1.5em;
 }

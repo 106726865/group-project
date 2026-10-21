@@ -1,0 +1,82 @@
+.thecoolhire {
+  height: 2rem;
+  overflow: hidden;
+  background-color: #ffbd16;
+  animation: hiring-background-flash 2.5s linear infinite;
+}
+
+.thecoolhire span {
+  font-family: monospace;
+  font-weight: 700;
+}
+
+.hire-bar {
+  display: flex;
+  width: max-content;
+  height: 100%;
+  gap: 0;
+  animation: hiring-scroll 24s linear infinite;
+}
+
+.hire-gr {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  width: max-content;
+  gap: 30px;
+  padding-right: 30px;
+  white-space: nowrap;
+}
+
+.hire-gr > span:not(.main-strip) {
+  flex: 0 0 auto;
+  color: #000;
+  font-size: 26px;
+  animation: hiring-text-flash 2.5s linear infinite;
+}
+
+.hire-gr .main-strip {
+  display: block;
+  flex: 0 0 20rem;
+  box-sizing: border-box;
+  height: 1.25rem;
+  color: #000;
+  background-image: repeating-linear-gradient(
+    45deg,
+    currentColor 0 8px,
+    transparent 8px 16px
+  );
+  animation: hiring-text-flash 2.5s linear infinite;
+}
+
+@keyframes hiring-scroll {
+  to {
+    transform: translateX(-10%);
+  }
+}
+
+@keyframes hiring-background-flash {
+  0%,
+  30%,
+  100% {
+    background-color: #ffbd16;
+  }
+
+  50%,
+  80% {
+    background-color: #ea1b1b;
+  }
+}
+
+@keyframes hiring-text-flash {
+  0%,
+  30%,
+  100% {
+    color: #000;
+  }
+
+  50%,
+  80% {
+    color: #fff;
+  }
+}

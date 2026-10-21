@@ -1,5 +1,5 @@
 body {
-  max-width: 70rem;
+  width: 80%;
   margin: 0 auto;
   padding: 1rem;
 }
@@ -90,44 +90,45 @@ footer {
   }
 }
 
-.landing-page {
+.intro-page {
   max-width: none;
   padding: 0;
 }
 
-.landing-header {
+.intro-header {
   position: relative;
   display: block;
 }
 
-.landing-brand {
+.intro-brand {
   padding: 4rem 1.5rem 1rem;
+  font-weight: bold;
 }
 
-.landing-search {
+.intro-search {
   position: absolute;
   top: 1rem;
   right: 1.5rem;
 }
 
-.landing-search input {
+.intro-search input {
   min-width: 0;
   flex: 1;
 }
 
-.landing-brand .company-logo {
+.intro-brand .company-logo {
   width: 2rem;
   height: 2rem;
 }
 
-.landing-brand h1 {
+.intro-brand h1 {
   margin: 0;
   font-size: clamp(3rem, 12vw, 10rem);
-  font-weight: 400;
+  font-weight: bold;
   line-height: 1;
 }
 
-.landing-info-bar {
+.intro-info-bar {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
@@ -135,11 +136,11 @@ footer {
   padding: 0.75rem 1.5rem;
 }
 
-.landing-info-bar > :last-child {
+.intro-info-bar > :last-child {
   text-align: right;
 }
 
-.landing-info-bar nav {
+.intro-info-bar nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -147,71 +148,394 @@ footer {
   margin: 0;
 }
 
-.landing-main {
+.intro-main {
   max-width: none;
   margin: 0;
-  padding: 1.5rem;
+  padding: 1.5rem 0;
 }
 
-.landing-hero {
+.intro-sec {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   align-items: start;
-  gap: 2rem;
   min-height: 24rem;
 }
 
-.landing-hero img {
+.intro-sec img {
   display: block;
   width: 100%;
   height: 24rem;
   object-fit: cover;
 }
 
-.landing-tagline {
-  max-width: 32rem;
-  padding: 0.5rem 1rem;
+.intro-tagline {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5rem 1.5rem;
 }
 
-.landing-tagline p {
+.intro-tagline p {
   margin-top: 0;
+  font-size: clamp(1.5rem, 4vw, 3.5rem);
 }
 
-.landing-details {
+.intro-tagline h2 {
+  margin-top: 0.5rem;
+  font-size: clamp(3rem, 10vw, 9rem);
+  line-height: 0.98;
+  text-align: right;
+}
+
+.intro-details {
   max-width: 60rem;
   margin: 3rem auto;
+  padding: 0 1.5rem;
+  font-size: 1.5em;
+}
+
+table {
+  width: 100%;
+  margin-inline: auto;
+}
+
+table,
+table th,
+table td {
+  border: 1px solid #fff;
 }
 
 @media (max-width: 40rem) {
-  .landing-search {
+  .intro-search {
     right: 1rem;
     left: 1rem;
   }
 
-  .landing-brand {
+  .intro-brand {
     padding-top: 5rem;
   }
 
-  .landing-info-bar {
+  .intro-info-bar {
     grid-template-columns: 1fr;
   }
 
-  .landing-info-bar > :last-child {
+  .intro-info-bar > :last-child {
     text-align: left;
   }
 
-  .landing-info-bar nav {
+  .intro-info-bar nav {
     justify-content: flex-start;
   }
 
-  .landing-hero {
+  .intro-sec {
     grid-template-columns: 1fr;
   }
 
-  .landing-hero img {
+  .intro-sec img {
     height: auto;
     max-height: 24rem;
     object-fit: contain;
     object-position: left;
+  }
+}
+
+nav a {
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.intro-info-bar {
+  font-size: 1.5em;
+}
+
+.intro-page {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.intro-page .intro-brand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: clamp(1rem, 2.5vw, 2rem);
+  border-bottom: 1px solid rgb(175 175 175 / 55%);
+}
+
+.intro-page .intro-brand .company-logo {
+  order: 1;
+  flex: 0 0 auto;
+  width: clamp(2rem, 5vw, 4rem);
+  height: clamp(2rem, 5vw, 4rem);
+}
+
+.intro-page .intro-brand h1 {
+  min-width: 0;
+  font-size: clamp(2.4rem, 10vw, 9rem);
+  overflow-wrap: anywhere;
+}
+
+.intro-page .intro-info-bar {
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: 0;
+  padding: 0;
+  border-bottom: 1px solid rgb(175 175 175 / 55%);
+  font-size: 1rem;
+}
+
+.intro-page .intro-info-bar > p {
+  padding: 0.85rem 1rem;
+  font-family: monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.intro-page .intro-info-bar > :last-child {
+  text-align: right;
+}
+
+.intro-page .intro-info-bar nav {
+  gap: 0;
+}
+
+.intro-page .intro-info-bar nav a {
+  display: block;
+  padding: 0.85rem 1rem;
+  border-right: 1px solid rgb(175 175 175 / 55%);
+  border-left: 1px solid rgb(175 175 175 / 55%);
+  font-family: monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.intro-page .intro-main {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: minmax(24rem, auto) minmax(10rem, auto);
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.intro-page .intro-sec,
+.intro-page .intro-details,
+.intro-page .intro-idea,
+.intro-page .intro-search {
+  min-width: 0;
+  box-sizing: border-box;
+  border: 1px solid rgb(175 175 175 / 55%);
+}
+
+.intro-page .intro-sec {
+  grid-column: 1 / 9;
+  grid-row: 1;
+  display: flex;
+  min-height: 0;
+  align-items: stretch;
+  background: linear-gradient(135deg, rgb(255 131 16 / 8%), transparent 65%);
+}
+
+.intro-page .intro-tagline {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  padding: clamp(1rem, 2.5vw, 2.5rem);
+}
+
+.intro-page .intro-tagline h2 {
+  max-width: 12ch;
+  margin: 2rem 0 0;
+  font-size: clamp(3rem, 8vw, 8rem);
+  line-height: 0.92;
+  text-align: left;
+  text-wrap: balance;
+}
+
+.intro-page .intro-details {
+  grid-column: 9 / 13;
+  grid-row: 1;
+  max-width: none;
+  min-height: 0;
+  margin: 0;
+  padding: clamp(1rem, 2vw, 1.75rem);
+  background-color: rgb(255 255 255 / 3%);
+  font-size: 1rem;
+}
+
+.intro-page .intro-details h2,
+.intro-page .intro-search h2 {
+  margin: 0.75rem 0 1rem;
+  font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+  line-height: 1;
+}
+
+.intro-page .intro-details table {
+  margin: 0;
+  border-collapse: collapse;
+  font-size: clamp(0.8rem, 1.2vw, 1rem);
+}
+
+.intro-page .intro-details table th,
+.intro-page .intro-details table td {
+  padding: 0.65rem 0.5rem;
+  border: 1px solid rgb(175 175 175 / 40%);
+}
+
+.intro-page .intro-details table th {
+  text-align: left;
+}
+
+.intro-page {
+  display: block;
+  font-family: monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.intro-page .intro-idea {
+  grid-column: 1 / 6;
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem clamp(1rem, 2.5vw, 2rem);
+  background-color: rgb(255 255 255 / 3%);
+}
+
+.intro-page .intro-idea p {
+  margin: 0;
+  font-size: clamp(1.5rem, 3.5vw, 3rem);
+  font-weight: 700;
+  line-height: 0.95;
+}
+
+.intro-page .intro-search {
+  position: static;
+  top: auto;
+  right: auto;
+  left: auto;
+  grid-column: 6 / 13;
+  grid-row: 2;
+  padding: 1rem clamp(1rem, 2.5vw, 2rem);
+  background-color: rgb(255 131 16 / 5%);
+}
+
+.intro-page .intro-search form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.5rem;
+}
+
+.intro-page .intro-search label {
+  grid-column: 1 / -1;
+  font-size: 0.85rem;
+}
+
+.intro-page > footer {
+  gap: 0;
+  margin-top: 0;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgb(175 175 175 / 55%);
+}
+
+.intro-page > footer > a {
+  margin-left: -1px;
+}
+
+@media (max-width: 55rem) {
+  .intro-page .intro-main {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-rows: minmax(22rem, auto) minmax(10rem, auto) minmax(10rem, auto);
+  }
+
+  .intro-page .intro-sec {
+    grid-column: 1 / 5;
+  }
+
+  .intro-page .intro-details {
+    grid-column: 5 / 7;
+  }
+
+  .intro-page .intro-idea {
+    grid-column: 1 / 4;
+    grid-row: 2;
+  }
+
+  .intro-page .intro-search {
+    grid-column: 4 / 7;
+    grid-row: 2;
+  }
+}
+
+@media (max-width: 40rem) {
+  .intro-page .intro-brand h1 {
+    font-size: clamp(2.2rem, 11vw, 4.5rem);
+  }
+
+  .intro-page .intro-info-bar {
+    grid-template-columns: 1fr;
+  }
+
+  .intro-page .intro-info-bar > :last-child {
+    display: none;
+  }
+
+  .intro-page .intro-info-bar nav {
+    justify-content: flex-start;
+    border-top: 1px solid rgb(175 175 175 / 55%);
+  }
+
+  .intro-page .intro-info-bar nav a {
+    flex: 1 1 auto;
+    padding-inline: 0.65rem;
+    text-align: center;
+  }
+
+  .intro-page .intro-main {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: minmax(20rem, auto) auto auto;
+  }
+
+  .intro-page .intro-sec {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  .intro-page .intro-tagline h2 {
+    max-width: 10ch;
+    font-size: clamp(3rem, 15vw, 5rem);
+  }
+
+  .intro-page .intro-details {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .intro-page .intro-idea {
+    grid-column: 1;
+    grid-row: 3;
+    min-height: 9rem;
+  }
+
+  .intro-page .intro-search {
+    grid-column: 2;
+    grid-row: 3;
+    min-height: 9rem;
+  }
+
+  .intro-page .intro-search form {
+    grid-template-columns: 1fr;
+  }
+
+  .intro-page .intro-search label {
+    grid-column: 1;
   }
 }

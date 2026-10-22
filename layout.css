@@ -1,3 +1,5 @@
+@import url("variables.css");
+
 body {
   width: 80%;
   margin: 0 auto;
@@ -201,7 +203,7 @@ table {
 table,
 table th,
 table td {
-  border: 1px solid #fff;
+  border: 1px solid var(--header);
 }
 
 @media (max-width: 40rem) {
@@ -263,7 +265,7 @@ nav a:hover {
   justify-content: space-between;
   gap: 1rem;
   padding: clamp(1rem, 2.5vw, 2rem);
-  border-bottom: 1px solid rgb(175 175 175 / 55%);
+  border-bottom: 1px solid var(--border);
 }
 
 .intro-page .intro-brand .company-logo {
@@ -283,7 +285,7 @@ nav a:hover {
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   gap: 0;
   padding: 0;
-  border-bottom: 1px solid rgb(175 175 175 / 55%);
+  border-bottom: 1px solid var(--border);
   font-size: 1rem;
 }
 
@@ -306,8 +308,8 @@ nav a:hover {
 .intro-page .intro-info-bar nav a {
   display: block;
   padding: 0.85rem 1rem;
-  border-right: 1px solid rgb(175 175 175 / 55%);
-  border-left: 1px solid rgb(175 175 175 / 55%);
+  border-right: 1px solid var(--border);
+  border-left: 1px solid var(--border);
   font-family: monospace;
   font-size: 0.75rem;
   letter-spacing: 0.08em;
@@ -329,7 +331,7 @@ nav a:hover {
 .intro-page .intro-search {
   min-width: 0;
   box-sizing: border-box;
-  border: 1px solid rgb(175 175 175 / 55%);
+  border: 1px solid var(--border);
 }
 
 .intro-page .intro-sec {
@@ -338,7 +340,6 @@ nav a:hover {
   display: flex;
   min-height: 0;
   align-items: stretch;
-  background: linear-gradient(135deg, rgb(255 131 16 / 8%), transparent 65%);
 }
 
 .intro-page .intro-tagline {
@@ -365,7 +366,6 @@ nav a:hover {
   min-height: 0;
   margin: 0;
   padding: clamp(1rem, 2vw, 1.75rem);
-  background-color: rgb(255 255 255 / 3%);
   font-size: 1rem;
 }
 
@@ -385,7 +385,7 @@ nav a:hover {
 .intro-page .intro-details table th,
 .intro-page .intro-details table td {
   padding: 0.65rem 0.5rem;
-  border: 1px solid rgb(175 175 175 / 40%);
+  border: 1px solid var(--border);
 }
 
 .intro-page .intro-details table th {
@@ -407,7 +407,6 @@ nav a:hover {
   flex-direction: column;
   justify-content: space-between;
   padding: 1rem clamp(1rem, 2.5vw, 2rem);
-  background-color: rgb(255 255 255 / 3%);
 }
 
 .intro-page .intro-idea p {
@@ -425,7 +424,6 @@ nav a:hover {
   grid-column: 6 / 13;
   grid-row: 2;
   padding: 1rem clamp(1rem, 2.5vw, 2rem);
-  background-color: rgb(255 131 16 / 5%);
 }
 
 .intro-page .intro-search form {
@@ -443,7 +441,7 @@ nav a:hover {
   gap: 0;
   margin-top: 0;
   padding: 0.75rem 1rem;
-  border: 1px solid rgb(175 175 175 / 55%);
+  border: 1px solid var(--border);
 }
 
 .intro-page > footer > a {
@@ -490,7 +488,7 @@ nav a:hover {
 
   .intro-page .intro-info-bar nav {
     justify-content: flex-start;
-    border-top: 1px solid rgb(175 175 175 / 55%);
+    border-top: 1px solid var(--border);
   }
 
   .intro-page .intro-info-bar nav a {

@@ -1,31 +1,28 @@
+@import url("variables.css");
 * {
-    font-family: Arial, Helvetica, sans-serif;
-    color: rgb(175 175 175 / 100%);
+    font-family: "JetBrains Mono", monospace;
+    color: var(--text);
     h1, h2, th {
-        color: rgb(240 240 240 / 100%)
+        color: var(--header);
+        font-family: Arial, Helvetica, sans-serif;
     };
-    p {
-        color: rgb(175 175 175 / 100%);
+    p, td, tr, label {
+        color: var(--text);
+        
     }
     [href] {
-        color: rgb(255, 131, 16);
+        color: var(--accent);
     }
 }
 
 body {
-  background-color: rgb(14 14 14 / 100%);
-  background-image:url("caption.png");
-  background-blend-mode: darken;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
+  background-color: var(--surface);
 }
 
 #site-search {
-  background-color: #000;
+  background-color: var(--surface);
 }
 
 svg {
-    fill:rgb(255, 131, 16);
+    fill:var(--accent);
 }

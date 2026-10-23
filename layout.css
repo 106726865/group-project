@@ -25,6 +25,55 @@ header nav {
   margin-left: auto;
 }
 
+.site-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0;
+  padding: 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.site-header > p {
+  padding: 0.85rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+}
+
+.site-header > p:first-child {
+  justify-self: start;
+}
+
+.site-header > .site-header-note {
+  justify-self: end;
+  text-align: right;
+}
+
+.site-header nav {
+  justify-content: center;
+  gap: 0;
+  margin: 0;
+}
+
+.site-header nav a {
+  display: block;
+  padding: 0.85rem 1rem;
+  border-right: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.site-header nav a:hover {
+  background: var(--accent);
+  color: var(--surface);
+  text-decoration: none;
+}
+
 .company-logo {
   width: 1.5em;
   height: 1.5em;
@@ -89,6 +138,25 @@ footer {
   header nav {
     width: 100%;
     margin-left: 0;
+  }
+
+  .site-header {
+    grid-template-columns: 1fr;
+  }
+
+  .site-header > .site-header-note {
+    display: none;
+  }
+
+  .site-header nav {
+    width: 100%;
+    border-top: 1px solid var(--border);
+  }
+
+  .site-header nav a {
+    flex: 1 1 auto;
+    padding-inline: 0.65rem;
+    text-align: center;
   }
 }
 

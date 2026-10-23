@@ -1,3 +1,4 @@
+@import url("variables.css");
 .thecoolhire {
   height: 2rem;
   overflow: hidden;
@@ -6,7 +7,7 @@
 }
 
 .thecoolhire span {
-  font-family: monospace;
+  font-family: var(--font-mono);
   font-weight: 700;
 }
 
@@ -31,7 +32,7 @@
 .hire-gr > span:not(.main-strip) {
   flex: 0 0 auto;
   color: #000;
-  font-size: 26px;
+  font-size: 1.5rem;
   animation: hiring-text-flash 2.5s linear infinite;
 }
 
@@ -78,5 +79,96 @@
   50%,
   80% {
     color: #fff;
+  }
+}
+
+.intro-page .intro-brand {
+  overflow: hidden;
+}
+
+.intro-page .intro-brand h1 {
+  box-sizing: border-box;
+  padding: 0.12em 0.18em;
+  animation: landing-slide-from-left 800ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.intro-page .intro-main > section {
+  overflow: hidden;
+}
+
+.intro-page .intro-main .intro-tagline {
+  animation: landing-slide-from-bottom 700ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.intro-page .intro-sec .intro-tagline {
+  animation-delay: 250ms;
+}
+
+.intro-page .intro-details .intro-tagline {
+  animation-delay: 350ms;
+}
+
+.intro-page .intro-search .intro-tagline {
+  animation-delay: 900ms;
+}
+
+.intro-page .intro-main :is(th, td, p, label, button) {
+  animation: landing-text-enter 600ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.meh {
+  animation: landing-text-enter 600ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.intro-page .intro-details :is(th, td) {
+  animation-delay: 450ms;
+}
+
+.intro-page .intro-idea p {
+  animation-delay: 650ms;
+}
+
+.intro-page .intro-search :is(label, button) {
+  animation-delay: 800ms;
+}
+
+@keyframes landing-slide-from-left {
+  from {
+    transform: translateX(-105%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes landing-slide-from-bottom {
+  from {
+    transform: translateY(110%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes landing-text-enter {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-page .intro-brand h1,
+  .intro-page .intro-main h2,
+  .intro-page .intro-main :is(th, td, p, label, button) {
+    animation: none;
+    transform: none;
   }
 }

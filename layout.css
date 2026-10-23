@@ -291,10 +291,9 @@ nav a:hover {
 
 .intro-page .intro-info-bar > p {
   padding: 0.85rem 1rem;
-  font-family: monospace;
+  font-family: var(--font-mono);
   font-size: 0.75rem;
   letter-spacing: 0.08em;
-  text-transform: uppercase;
 }
 
 .intro-page .intro-info-bar > :last-child {
@@ -310,10 +309,9 @@ nav a:hover {
   padding: 0.85rem 1rem;
   border-right: 1px solid var(--border);
   border-left: 1px solid var(--border);
-  font-family: monospace;
+  font-family: var(--font-mono);
   font-size: 0.75rem;
   letter-spacing: 0.08em;
-  text-transform: uppercase;
 }
 
 .intro-page .intro-main {
@@ -394,10 +392,9 @@ nav a:hover {
 
 .intro-page {
   display: block;
-  font-family: monospace;
+  font-family: var(--font-mono);
   font-size: 0.72rem;
   letter-spacing: 0.12em;
-  text-transform: uppercase;
 }
 
 .intro-page .intro-idea {
@@ -435,6 +432,43 @@ nav a:hover {
 .intro-page .intro-search label {
   grid-column: 1 / -1;
   font-size: 0.85rem;
+}
+
+.intro-page .intro-search input[type="search"],
+.intro-page .intro-search button {
+  box-sizing: border-box;
+  min-height: 2.75rem;
+  border: 1px solid var(--border);
+  border-radius: 0;
+  font: inherit;
+  transition: 0.3s ease;
+}
+
+.intro-page .intro-search input[type="search"] {
+  width: 100%;
+  min-width: 0;
+  padding: 0.6rem 0.75rem;
+  color: var(--header);
+  background: var(--surface);
+}
+
+.intro-page .intro-search button {
+  padding: 0.6rem 1rem;
+  color: var(--surface);
+  background: var(--accent);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.intro-page .intro-search button:hover {
+  color: var(--header);
+  background: var(--surface);
+}
+
+.intro-page .intro-search input[type="search"]:focus-visible,
+.intro-page .intro-search button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
 .intro-page > footer {

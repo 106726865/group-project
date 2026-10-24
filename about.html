@@ -7,110 +7,131 @@
     <link rel="stylesheet" href="layout.css">
   <link rel="stylesheet" href="colors.css">
   <link rel="stylesheet" href="animations.css">
-  <title>About | CLAZITERIUM</title>
+  <link rel="stylesheet" href="about-styles.css">
+  <title>CLAZITERIUM | About</title>
 </head>
 <body>
-  <header>
+  <header class="site-header">
     <p><a href="index.html"><svg class="company-logo" viewBox="0 -960 960 960" role="img"><use href="company_logo.svg#company-logo"></use></svg> CLAZITERIUM</a></p>
-    <p>Small studio. Big ideas.</p>
     <nav>
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="jobs.html">Careers</a>
       <a href="apply.html">Apply</a>
     </nav>
+    <p class="site-header-note">For your creative needs</p>
   </header>
 
-  <main>
-    <h1>About us</h1>
-    <p>We’re a creative agency making thoughtful websites, brands, and digital content for our clients.</p>
-    <h1>Group details</h1>
-    <ul>
-        <li>Group name: CompSciNerd</li>
-        <ul>
-            <li>Class day: Thursday</li>
-            <li>Class time: 7 a.m - 10 a.m</li>
-        </ul>
-    </ul>
-    
-    
-    <h1>Our team</h1>
-    <img src="teampic.png" width="1200" height="675" alt="team picture" class="team_pic">
-    <h1>Meet the members</h1>
-    <hr>
-    <div class="member-card">
-        <img src="dang.png" width="300" height="450">
-    
-        <div>
-            <p class="role">[ROLE: MEMBER]</p>
-            <h2>Đăng</h2>
-            <p>QUOTE</p>
-            <blockquote>sometimes it's better to let go.</blockquote>
-        </div>
-    </div>
-    <hr>
+  <main class="about-page">
+    <section class="about-intro">
+      <div class="about-copy">
+        <h1>About us</h1>
+        <p>We’re a creative agency making thoughtful websites, brands, and digital content for our clients.</p>
+      </div>
+      <dl class="group-details">
+        <div><dt>Group</dt><dd>The Comp Sci Nerds (TCSN)</dd></div>
+        <div><dt>Class day</dt><dd>Thursday</dd></div>
+        <div><dt>Class time</dt><dd>7:00 AM – 10:00 AM</dd></div>
+      </dl>
+    </section>
 
+    <section class="team-section">
+      <div class="section-heading">
+        <h2 id="team-heading">Our team</h2>
+      </div>
+      <img src="teampic.png" width="1200" height="675" alt="The CLAZITERIUM team" class="team-picture" style="filter: grayscale();">
+      <h2 class="members-heading">Meet the members</h2>
+      <div class="member-list">
+        <article class="member-card">
+          <div class="member-image">
+            <img src="dang.png" width="300" height="450" alt="Đăng">
+            <div class="role-list">
+              <p class="role">Visual Director</p>
+              <p class="role">UI/UX Designer</p>
+              <p class="role">Front-end Developer</p>
+            </div>
+          </div>
+          <div class="member-details">
+            <h3>Đăng</h3>
+            <blockquote>
+              <p>Đôi khi buông bỏ lại tốt hơn.</p>
+              <p class="translate">Sometimes it's better to let go.</p>
+            </blockquote>
+          </div>
+        </article>
 
-    <div class="member-card">
-        <img src="ta.png" width="300" height="450">
-    
-        <div>
-            <p class="role">[ROLE: MEMBER]</p>
-            <h2>Tuấn Anh</h2>
-            <p>QUOTE</p>
-            <blockquote>It doesn't matter where you were born or where you started. What matters is how hard you're willing to rise.</blockquote>
-        </div>
-    </div>
-    <hr>
+        <article class="member-card">
+          <div class="member-image">
+            <img src="ta.png" width="300" height="450" alt="Tuấn Anh">
+            <div class="role-list">
+              <p class="role">UI/UX Designer</p>
+            </div>
+          </div>
+          <div class="member-details">
+            <h3>Tuấn Anh</h3>
+            <blockquote>
+              <p>Không quan trọng bạn sinh ra ở đâu hay bắt đầu ở đâu. Điều quan trọng là bạn sẵn sàng vươn lên như thế nào.</p>
+              <p class="translate">It doesn't matter where you were born or where you started. What matters is how hard you're willing to rise.</p>
+            </blockquote>
+          </div>
+        </article>
 
+        <article class="member-card">
+          <div class="member-image">
+            <img src="dat.png" width="300" height="450" alt="Đức Đạt">
+            <div class="role-list">
+              <p class="role">Project Manager</p>
+              <p class="role">Front-end Developer</p>
+            </div>
+          </div>
+          <div class="member-details">
+            <h3>Đức Đạt</h3>
+            <blockquote>
+              <p>Hãy mạnh mẽ, nhưng đủ mạnh mẽ để nhẹ nhàng.</p>
+              <p class="translate">Be strong, but strong enough to be gentle.</p>
+            </blockquote>
+          </div>
+        </article>
 
-    <div class="member-card">
-        <img src="dat.png" width="300" height="450">
-    
-        <div>
-            <p class="role">[ROLE: MEMBER]</p>
-            <h2>Đức Đạt</h2>
-            <p>QUOTE</p>
-            <blockquote>Be strong, but strong enough to be gentle.</blockquote>
-        </div>
-    </div>
-    <hr>
+        <article class="member-card">
+          <div class="member-image">
+            <img src="khang.png" width="300" height="450" alt="Nhật Khang">
+            <div class="role-list">
+              <p class="role">UI/UX Designer</p>
+            </div>
+          </div>
+          <div class="member-details">
+            <h3>Nhật Khang</h3>
+            <blockquote>
+              <p>Cách duy nhất để làm việc xuất sắc là yêu thích những gì bạn làm.</p>
+              <p class="translate">The only way to do great work is to love what you do.</p>
+            </blockquote>
+          </div>
+        </article>
+      </div>
+    </section>
 
-
-
-    <div class="member-card">
-        <img src="khang.png" width="300" height="450">
-    
-        <div>
-            <p class="role">[ROLE: LEADER]</p>
-            <h2>Nhật Khang</h2>
-            <p>QUOTE</p>
-            <blockquote>The only way to do great work is to love what you do</blockquote>
-        </div>
-    </div>
-    
-    <h2 id="facts-heading">Fun facts</h2>
-    <div>
+    <section class="facts-section">
+      <h2 id="facts-heading">Fun facts</h2>
+      <div class="facts-table-wrap">
         <table>
           <thead>
             <tr>
               <th scope="col">Member</th>
               <th scope="col">Dream job</th>
-              <th scope="col">Favorite Dishes</th>
+              <th scope="col">Favorite dish</th>
               <th scope="col">Hometown</th>
             </tr>
           </thead>
           <tbody>
-            <tr><th scope="row">[Đạt]</th><td>[Software Engineer]</td><td>[Pizza]</td><td>[HCM city]</td></tr>
-            <tr><th scope="row">[Khang]</th><td>[CEO]</td><td>[Security Engineer]</td><td>[HCM city]</td></tr>
-            <tr><th scope="row">[Đăng]</th><td>[Game Developer]</td><td>[Pasta]</td><td>[HCM city]</td></tr>
-            <tr><th scope="row">[Tuấn Anh]</th><td>[Security Engineer]</td><td>[Hot Pot]</td><td>[Dong Nai province]</td></tr>
+            <tr><th scope="row">Đạt</th><td>Software Engineer</td><td>Pizza</td><td>HCM city</td></tr>
+            <tr><th scope="row">Khang</th><td>Cybersecurity Engineer &amp; Pen-tester</td><td>Japanese curry</td><td>HCM city</td></tr>
+            <tr><th scope="row">Đăng</th><td>Software Security Engineer, Game Developer, VFX artist &amp; graphics programmer, jack of all trades</td><td>Water</td><td>Mars</td></tr>
+            <tr><th scope="row">Tuấn Anh</th><td>Security Engineer</td><td>Hot Pot</td><td>Dong Nai province</td></tr>
           </tbody>
         </table>
-    </div>
-
-
-
+      </div>
+    </section>
   </main>
 
   <footer>

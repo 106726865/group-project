@@ -38,7 +38,6 @@
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.08em;
-  text-transform: uppercase;
 }
 
 .careers-page .page-header h1 {
@@ -86,7 +85,6 @@
   font-size: 0.68rem;
   line-height: 1.6;
   text-align: right;
-  text-transform: uppercase;
 }
 
 .careers-page .job-listing {
@@ -175,7 +173,6 @@
   font-family: var(--font-mono);
   font-size: 0.62rem;
   font-weight: 700;
-  text-transform: uppercase;
 }
 
 .careers-page .job-facts dd {
@@ -220,7 +217,6 @@
   font-weight: 700;
   letter-spacing: 0.06em;
   list-style: none;
-  text-transform: uppercase;
 }
 
 .careers-page .job-details summary::-webkit-details-marker {
@@ -253,7 +249,6 @@
   font-family: var(--font-mono);
   font-size: 0.72rem;
   letter-spacing: 0.05em;
-  text-transform: uppercase;
 }
 
 .careers-page .job-section ul {
@@ -323,7 +318,6 @@
   font-weight: 700;
   text-align: center;
   text-decoration: none;
-  text-transform: uppercase;
 }
 
 .careers-page .application-note a:hover {

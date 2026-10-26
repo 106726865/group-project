@@ -45,6 +45,28 @@
   line-height: 1.6;
 }
 
+.inclusive-employment {
+  margin-top: 1.25rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border);
+}
+
+.inclusive-employment h2 {
+  margin: 0 0 0.35rem;
+  color: var(--header);
+  font-family: var(--font-head);
+  font-size: 0.95rem;
+  text-transform: uppercase;
+}
+
+.inclusive-employment p {
+  max-width: 58rem;
+  margin: 0;
+  color: var(--text);
+  font-size: 0.75rem;
+  line-height: 1.6;
+}
+
 
 .application-page form {
   display: grid;

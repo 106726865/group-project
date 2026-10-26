@@ -536,7 +536,7 @@ nav a:hover {
   padding: 1rem clamp(1rem, 2.5vw, 2rem);
 }
 
-.intro-page .intro-search form {
+.intro-page .intro-search .search-controls {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 0.5rem;
@@ -694,7 +694,7 @@ nav a:hover {
     min-height: 9rem;
   }
 
-  .intro-page .intro-search form {
+  .intro-page .intro-search .search-controls {
     grid-template-columns: 1fr;
   }
 

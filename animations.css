@@ -2,8 +2,8 @@
 .thecoolhire {
   height: 2rem;
   overflow: hidden;
-  background-color: #ffbd16;
-  animation: hiring-background-flash 2.5s linear infinite;
+  background-color: #ffa928;
+  animation: hiring-background-flash 1s linear infinite;
 }
 
 .thecoolhire span {
@@ -31,23 +31,23 @@
 
 .hire-gr > span:not(.main-strip) {
   flex: 0 0 auto;
-  color: #000;
-  font-size: 1.5rem;
-  animation: hiring-text-flash 2.5s linear infinite;
+  color: #25150D;
+  font-size: 1.05rem;
+  animation: hiring-text-flash 1s linear infinite;
 }
 
 .hire-gr .main-strip {
   display: block;
-  flex: 0 0 20rem;
+  flex: 0 0 11rem;
   box-sizing: border-box;
-  height: 1.25rem;
-  color: #000;
+  height: 1.1rem;
   background-image: repeating-linear-gradient(
     45deg,
     currentColor 0 8px,
     transparent 8px 16px
   );
-  animation: hiring-text-flash 2.5s linear infinite;
+  animation: hiring-text-flash 1s linear infinite,
+    hiring-stripe-scroll 800ms linear infinite;
 }
 
 @keyframes hiring-scroll {
@@ -56,29 +56,45 @@
   }
 }
 
+@keyframes hiring-stripe-scroll {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: -22.6274px 0;
+  }
+}
+
 @keyframes hiring-background-flash {
   0%,
-  30%,
-  100% {
-    background-color: #ffbd16;
+  48.387% {
+    background-color: #ffa928;
   }
 
   50%,
-  80% {
-    background-color: #ea1b1b;
+  98.387% {
+    background-color: #ff372b;
+  }
+
+  100% {
+    background-color: #ffa928;
   }
 }
 
 @keyframes hiring-text-flash {
   0%,
-  30%,
-  100% {
-    color: #000;
+  48.387% {
+    color: #25150D;
   }
 
   50%,
-  80% {
-    color: #fff;
+  98.387% {
+    color: #ffded1;
+  }
+
+  100% {
+    color: #25150D;
   }
 }
 
@@ -161,14 +177,5 @@
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .intro-page .intro-brand h1,
-  .intro-page .intro-main h2,
-  .intro-page .intro-main :is(th, td, p, label, button) {
-    animation: none;
-    transform: none;
   }
 }

@@ -110,6 +110,22 @@
   height: auto;
 }
 
+.team-section figure {
+  margin: 0;
+  padding: 0.5rem;
+  border: 2px solid #ff8310;
+  background: #141414;
+}
+
+.team-section figcaption {
+  padding: 0.65rem 0.25rem 0.15rem;
+  color: #afafaf;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
 .members-heading {
   padding-top: 0.5rem;
 }
@@ -216,29 +232,45 @@
 
 .facts-section table {
   min-width: 40rem;
+  background: #141414;
   border-collapse: collapse;
 }
 
 .facts-section th,
 .facts-section td {
   padding: 0.7rem;
-  border: 1px solid var(--border);
+  border: 1px solid #555555;
   text-align: left;
   vertical-align: top;
   line-height: 1.45;
 }
 
 .facts-section thead th {
-  color: var(--accent);
+  background: #242424;
+  color: #ff8310;
 }
 
 .facts-section tbody th {
-  color: var(--header);
+  color: #f0f0f0;
   white-space: nowrap;
 }
 
 .facts-section td {
+  color: #afafaf;
   font-size: 0.78rem;
+}
+
+.facts-section tbody tr {
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.facts-section tbody tr:hover {
+  background: #303030;
+}
+
+.facts-section tbody tr:hover th,
+.facts-section tbody tr:hover td {
+  color: #ffffff;
 }
 
 @media (max-width: 58rem) {

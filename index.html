@@ -7,12 +7,16 @@
   <link rel="stylesheet" href="layout.css">
   <link rel="stylesheet" href="colors.css">
   <link rel="stylesheet" href="animations.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .intro-info-bar > p { text-wrap: balance; }
+  </style>
   <title>CLAZITERIUM | Creative Agency</title>
 </head>
 <body class="intro-page">
   <header class="intro-header">
     <div class="intro-brand">
-      <svg class="company-logo" viewBox="0 -960 960 960" fill="currentColor"><use href="company_logo.svg#company-logo"></use></svg>
+      <svg class="company-logo" viewBox="0 -960 960 960" fill="currentColor" style="color: var(--accent);"><use href="company_logo.svg#company-logo"></use></svg>
       <h1>CLAZITERIUM</h1>
     </div>
     <div class="intro-info-bar">
@@ -87,11 +91,11 @@
 
     <section class="intro-search">
       <h2 class="meh">Search</h2>
-      <form action="index.html" method="get">
+      <div class="search-controls">
         <label for="site-search">Search this site</label>
         <input id="site-search" name="q" type="search">
-        <button type="submit" id="site-search-button">Search</button>
-      </form>
+        <button type="button" id="site-search-button">Search</button>
+      </div>
     </section>
   </main>
 

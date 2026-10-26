@@ -45,7 +45,7 @@ header nav {
   justify-self: start;
 }
 
-.site-header > .site-header-note {
+.site-header > .extrahead {
   justify-self: end;
   text-align: right;
 }
@@ -117,8 +117,8 @@ footer {
   margin-top: 3rem;
 }
 
-.footer-icon-link,
-.footer-email-link {
+.footicon,
+.footmail {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -128,7 +128,7 @@ footer {
   padding: 0.5rem;
 }
 
-.footer-icon-link svg {
+.footicon svg {
   width: 1.25rem;
   height: 1.25rem;
   fill: currentColor;
@@ -144,7 +144,7 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .site-header > .site-header-note {
+  .site-header > .extrahead {
     display: none;
   }
 
@@ -536,7 +536,7 @@ nav a:hover {
   padding: 1rem clamp(1rem, 2.5vw, 2rem);
 }
 
-.intro-page .intro-search .search-controls {
+.intro-page .intro-search .uselessbutton {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 0.5rem;
@@ -694,7 +694,7 @@ nav a:hover {
     min-height: 9rem;
   }
 
-  .intro-page .intro-search .search-controls {
+  .intro-page .intro-search .uselessbutton {
     grid-template-columns: 1fr;
   }
 

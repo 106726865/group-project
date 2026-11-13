@@ -10,13 +10,13 @@ $bodyClass   = $bodyClass ?? '';
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="style/layout.css">
-  <link rel="stylesheet" href="style/colors.css">
-  <link rel="stylesheet" href="style/animations.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/colors.css">
+  <link rel="stylesheet" href="styles/animations.css">
   <?php foreach ($pageStyles as $style): ?>
-    <link rel="stylesheet" href="style/<?= htmlspecialchars($style) ?>">
+    <link rel="stylesheet" href="styles/<?= htmlspecialchars($style) ?>">
   <?php endforeach; ?>
-  <link rel="stylesheet" href="style/styles.css">
+  <link rel="stylesheet" href="styles/styles.css">
   <?php if ($inlineStyle !== ''): ?>
     <style>
       <?= $inlineStyle ?>

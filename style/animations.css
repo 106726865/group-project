@@ -3,7 +3,7 @@
   height: 2rem;
   overflow: hidden;
   background-color: #ffa928;
-  animation: hiring-background-flash 1s linear infinite;
+  animation: hiring-background-flash 4s linear infinite;
 }
 
 .thecoolhire span {
@@ -33,7 +33,7 @@
   flex: 0 0 auto;
   color: #25150D;
   font-size: 1.05rem;
-  animation: hiring-text-flash 1s linear infinite;
+  animation: hiring-text-flash 4s linear infinite;
 }
 
 .hire-gr .main-strip {
@@ -46,7 +46,7 @@
     currentColor 0 8px,
     transparent 8px 16px
   );
-  animation: hiring-text-flash 1s linear infinite,
+  animation: hiring-text-flash 4s linear infinite,
     hiring-stripe-scroll 800ms linear infinite;
 }
 

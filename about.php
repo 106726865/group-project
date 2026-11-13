@@ -25,14 +25,14 @@ include __DIR__ . '/includes/header.inc';
         <h2 id="team-heading">Our team</h2>
       </div>
       <figure>
-        <img src="assets/teampic.png" width="1200" height="675" alt="The CLAZITERIUM team" class="team-picture" style="filter: grayscale();">
+        <img src="images/teampic.png" width="1200" height="675" alt="The CLAZITERIUM team" class="team-picture" style="filter: grayscale();">
         <figcaption>the group</figcaption>
       </figure>
       <h2 class="members-heading">Meet the members</h2>
       <div class="member-list">
         <article class="member-card">
           <div class="member-image">
-            <img src="assets/dang.png" width="300" height="450" alt="Đăng">
+            <img src="images/dang.png" width="300" height="450" alt="Đăng">
             <div class="role-list">
               <p class="role">Director</p>
               <p class="role">UI/UX Designer</p>
@@ -50,7 +50,7 @@ include __DIR__ . '/includes/header.inc';
 
         <article class="member-card">
           <div class="member-image">
-            <img src="assets/ta.png" width="300" height="450" alt="Tuấn Anh">
+            <img src="images/ta.png" width="300" height="450" alt="Tuấn Anh">
             <div class="role-list">
               <p class="role">UI/UX Designer</p>
             </div>
@@ -66,7 +66,7 @@ include __DIR__ . '/includes/header.inc';
 
         <article class="member-card">
           <div class="member-image">
-            <img src="assets/dat.png" width="300" height="450" alt="Đức Đạt">
+            <img src="images/dat.png" width="300" height="450" alt="Đức Đạt">
             <div class="role-list">
               <p class="role">Project Manager</p>
             </div>
@@ -82,7 +82,7 @@ include __DIR__ . '/includes/header.inc';
 
         <article class="member-card">
           <div class="member-image">
-            <img src="assets/khang.png" width="300" height="450" alt="Nhật Khang">
+            <img src="images/khang.png" width="300" height="450" alt="Nhật Khang">
             <div class="role-list">
               <p class="role">UI/UX Designer</p>
             </div>

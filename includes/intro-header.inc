@@ -1,6 +1,6 @@
   <header class="intro-header">
     <div class="intro-brand">
-      <svg class="company-logo" viewBox="0 -960 960 960" fill="currentColor" style="color: var(--accent);"><use href="assets/company_logo.svg#company-logo"></use></svg>
+      <svg class="company-logo" viewBox="0 -960 960 960" fill="currentColor" style="color: var(--accent);"><use href="images/company_logo.svg#company-logo"></use></svg>
       <h1>CLAZITERIUM</h1>
     </div>
     <div class="intro-info-bar">

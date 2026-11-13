@@ -93,13 +93,13 @@ include __DIR__ . '/includes/header.inc';
 			<article class="job-card">
 			<p class="job-meta"><span class="job-reference">VD428</span></p>
 			<h2 id="visual-designer">Visual Designer</h2>
-			<p class="job-summary">Create distinctive visual identities and digital assets that help brands stand out.</p>
+			<p class="job-summary">Create distinctive visual identities and digital images that help brands stand out.</p>
 			<dl class="job-facts">
 				<div><dt>Salary</dt><dd>VND 16–25 million / month</dd></div>
 				<div><dt>Reports to</dt><dd>Creative Director</dd></div>
 			</dl>
 			<ul class="job-tags">
-				<li>Brand identity</li><li>Art direction</li><li>Digital assets</li>
+				<li>Brand identity</li><li>Art direction</li><li>Digital images</li>
 			</ul>
 			<details class="job-details">
 				<summary>Role details</summary>
@@ -107,7 +107,7 @@ include __DIR__ . '/includes/header.inc';
 					<section class="job-section">
 						<h3>Key responsibilities</h3>
 						<ol>
-							<li>Develop visual directions, layouts and design assets for client projects.</li>
+							<li>Develop visual directions, layouts and design images for client projects.</li>
 							<li>Help keep brand elements consistent across web and social content.</li>
 							<li>Present ideas and respond constructively to feedback.</li>
 						</ol>
@@ -143,7 +143,7 @@ include __DIR__ . '/includes/header.inc';
 						<ol>
 							<li>Plan and create short motion pieces and digital content for client projects.</li>
 							<li>Explore simple animations and interactions that support the user experience.</li>
-							<li>Prepare visual assets for web and social formats in collaboration with the team.</li>
+							<li>Prepare visual images for web and social formats in collaboration with the team.</li>
 						</ol>
 					</section>
 					<section class="job-section">

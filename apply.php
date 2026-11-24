@@ -20,35 +20,35 @@ include __DIR__ . '/includes/header.inc';
       <p>CLAZITERIUM welcomes applications from Aboriginal and Torres Strait Islander peoples. We are committed to treating applicants respectfully throughout the recruitment process. Contact us if you have questions or need support when applying.</p>
     </aside>
 
-    <form action="https://mercury.swin.edu.au/it000000/formtest.php" method="post">
+    <form action="process_eoi.php" method="post" novalidate>
       <section class="form-section">
         <h2 id="personal-heading"><span>01</span> Personal details</h2>
         <div class="form-grid">
           <div class="form-field">
             <label for="job-reference">Job reference number <span>*</span></label>
-            <input id="job-reference" name="job_reference" type="text" required pattern="[A-Za-z0-9]{5}" maxlength="5" title="Enter exactly 5 letters or numbers." autocomplete="off">
+            <input id="job-reference" name="job_reference" type="text" autocomplete="off">
             <small>Exactly 5 letters or numbers</small>
           </div>
           <div class="form-field">
             <label for="first-name">First name <span>*</span></label>
-            <input id="first-name" name="first_name" type="text" required pattern="[A-Za-z]{1,20}" maxlength="20" title="Use 1 to 20 letters only." autocomplete="given-name">
+            <input id="first-name" name="first_name" type="text" autocomplete="given-name">
           </div>
           <div class="form-field">
             <label for="last-name">Last name <span>*</span></label>
-            <input id="last-name" name="last_name" type="text" required pattern="[A-Za-z]{1,20}" maxlength="20" title="Use 1 to 20 letters only." autocomplete="family-name">
+            <input id="last-name" name="last_name" type="text" autocomplete="family-name">
           </div>
           <div class="form-field">
             <label for="date-of-birth">Date of birth <span>*</span></label>
-            <input id="date-of-birth" name="date_of_birth" type="text" required pattern="(?:0[1-9]|[12][0-9]|3[01])/(?:0[1-9]|1[0-2])/[0-9]{4}" placeholder="DD/MM/YYYY" title="Enter a valid date in DD/MM/YYYY format." inputmode="numeric" autocomplete="bday">
+            <input id="date-of-birth" name="date_of_birth" type="text" placeholder="DD/MM/YYYY" inputmode="numeric" autocomplete="bday">
             <small>DD/MM/YYYY</small>
           </div>
           <fieldset class="form-field gender-field">
             <legend>Gender <span>*</span></legend>
             <div class="choice-list">
-              <label><input name="gender" type="radio" value="female" required> Female</label>
-              <label><input name="gender" type="radio" value="male" required> Male</label>
-              <label><input name="gender" type="radio" value="non-binary" required> Non-binary</label>
-              <label><input name="gender" type="radio" value="prefer-not-to-say" required> Prefer not to say</label>
+              <label><input name="gender" type="radio" value="female"> Female</label>
+              <label><input name="gender" type="radio" value="male"> Male</label>
+              <label><input name="gender" type="radio" value="non-binary"> Non-binary</label>
+              <label><input name="gender" type="radio" value="prefer-not-to-say"> Prefer not to say</label>
             </div>
           </fieldset>
         </div>
@@ -59,15 +59,15 @@ include __DIR__ . '/includes/header.inc';
         <div class="form-grid">
           <div class="form-field form-field-wide">
             <label for="street-address">Street address <span>*</span></label>
-            <input id="street-address" name="street_address" type="text" required maxlength="40" autocomplete="street-address">
+            <input id="street-address" name="street_address" type="text" autocomplete="street-address">
           </div>
           <div class="form-field">
             <label for="suburb">Suburb / town <span>*</span></label>
-            <input id="suburb" name="suburb" type="text" required maxlength="40" autocomplete="address-level2">
+            <input id="suburb" name="suburb" type="text" autocomplete="address-level2">
           </div>
           <div class="form-field">
             <label for="state">State <span>*</span></label>
-            <select id="state" name="state" required autocomplete="address-level1">
+            <select id="state" name="state" autocomplete="address-level1">
               <option value="" disabled selected>Select a state</option>
               <option value="VIC">VIC</option>
               <option value="NSW">NSW</option>
@@ -81,15 +81,15 @@ include __DIR__ . '/includes/header.inc';
           </div>
           <div class="form-field">
             <label for="postcode">Postcode <span>*</span></label>
-            <input id="postcode" name="postcode" type="text" required pattern="[0-9]{4}" maxlength="4" inputmode="numeric" autocomplete="postal-code" title="Enter exactly 4 digits.">
+            <input id="postcode" name="postcode" type="text" inputmode="numeric" autocomplete="postal-code">
           </div>
           <div class="form-field">
             <label for="email">Email <span>*</span></label>
-            <input id="email" name="email" type="email" required autocomplete="email">
+            <input id="email" name="email" type="text" autocomplete="email">
           </div>
           <div class="form-field">
             <label for="phone">Phone number <span>*</span></label>
-            <input id="phone" name="phone" type="tel" required pattern="[0-9]{8,12}" minlength="8" maxlength="12" inputmode="numeric" autocomplete="tel" title="Enter 8 to 12 digits, without spaces or symbols.">
+            <input id="phone" name="phone" type="text" inputmode="numeric" autocomplete="tel">
             <small>8–12 digits, no spaces</small>
           </div>
         </div>
@@ -101,12 +101,12 @@ include __DIR__ . '/includes/header.inc';
           <fieldset class="form-field form-field-wide skills-field">
             <legend>Skill list <span>*</span></legend>
             <div class="choice-list skill-list">
-              <label><input name="skills[]" type="checkbox" value="ux-research" required> UX research</label>
-              <label><input name="skills[]" type="checkbox" value="prototyping" required> Prototyping</label>
-              <label><input name="skills[]" type="checkbox" value="ui-design" required> UI design</label>
-              <label><input name="skills[]" type="checkbox" value="html-css" required> HTML / CSS</label>
-              <label><input name="skills[]" type="checkbox" value="javascript" required> JavaScript</label>
-              <label><input name="skills[]" type="checkbox" value="motion-graphics" required> Motion graphics</label>
+              <label><input name="skills[]" type="checkbox" value="ux-research"> UX research</label>
+              <label><input name="skills[]" type="checkbox" value="prototyping"> Prototyping</label>
+              <label><input name="skills[]" type="checkbox" value="ui-design"> UI design</label>
+              <label><input name="skills[]" type="checkbox" value="html-css"> HTML / CSS</label>
+              <label><input name="skills[]" type="checkbox" value="javascript"> JavaScript</label>
+              <label><input name="skills[]" type="checkbox" value="motion-graphics"> Motion graphics</label>
             </div>
           </fieldset>
           <div class="form-field form-field-wide">

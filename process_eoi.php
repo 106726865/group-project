@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 
@@ -8,8 +9,17 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 $requiredPostFields = [
-    'job_reference', 'first_name', 'last_name', 'date_of_birth', 'gender',
-    'street_address', 'suburb', 'state', 'postcode', 'email', 'phone',
+    'job_reference',
+    'first_name',
+    'last_name',
+    'date_of_birth',
+    'gender',
+    'street_address',
+    'suburb',
+    'state',
+    'postcode',
+    'email',
+    'phone',
 ];
 foreach ($requiredPostFields as $field) {
     if (!isset($_POST[$field]) || !is_string($_POST[$field])) {
@@ -21,18 +31,18 @@ foreach ($requiredPostFields as $field) {
 require_once __DIR__ . '/settings.php';
 
 
-$job_reference  = trim(stripslashes($_POST['job_reference']));
-$first_name     = trim(stripslashes($_POST['first_name']));
-$last_name      = trim(stripslashes($_POST['last_name']));
-$date_of_birth  = trim(stripslashes($_POST['date_of_birth']));
-$gender         = trim(stripslashes($_POST['gender']));
+$job_reference = trim(stripslashes($_POST['job_reference']));
+$first_name = trim(stripslashes($_POST['first_name']));
+$last_name = trim(stripslashes($_POST['last_name']));
+$date_of_birth = trim(stripslashes($_POST['date_of_birth']));
+$gender = trim(stripslashes($_POST['gender']));
 $street_address = trim(stripslashes($_POST['street_address']));
-$suburb         = trim(stripslashes($_POST['suburb']));
-$state          = trim(stripslashes($_POST['state']));
-$postcode       = trim(stripslashes($_POST['postcode']));
-$email          = trim(stripslashes($_POST['email']));
-$phone          = trim(stripslashes($_POST['phone']));
-$other_skills   = isset($_POST['other_skills']) && is_string($_POST['other_skills'])
+$suburb = trim(stripslashes($_POST['suburb']));
+$state = trim(stripslashes($_POST['state']));
+$postcode = trim(stripslashes($_POST['postcode']));
+$email = trim(stripslashes($_POST['email']));
+$phone = trim(stripslashes($_POST['phone']));
+$other_skills = isset($_POST['other_skills']) && is_string($_POST['other_skills'])
     ? trim(stripslashes($_POST['other_skills']))
     : '';
 
@@ -112,10 +122,10 @@ if (strlen($other_skills) > 1000) {
 
 
 if ($errors !== []) {
-    $pageTitle   = 'CLAZITERIUM | Application error';
-    $pageStyles  = ['apply-style.css'];
+    $pageTitle = 'CLAZITERIUM | Application error';
+    $pageStyles = ['apply-style.css'];
     $inlineStyle = '';
-    $bodyClass   = '';
+    $bodyClass = '';
 
     include __DIR__ . '/includes/head.inc';
     include __DIR__ . '/includes/header.inc';
@@ -142,19 +152,19 @@ HTML;
 }
 
 
-$job_reference  = htmlspecialchars($job_reference);
-$first_name     = htmlspecialchars($first_name);
-$last_name      = htmlspecialchars($last_name);
-$date_of_birth  = htmlspecialchars($date_of_birth);
-$gender         = htmlspecialchars($gender);
+$job_reference = htmlspecialchars($job_reference);
+$first_name = htmlspecialchars($first_name);
+$last_name = htmlspecialchars($last_name);
+$date_of_birth = htmlspecialchars($date_of_birth);
+$gender = htmlspecialchars($gender);
 $street_address = htmlspecialchars($street_address);
-$suburb         = htmlspecialchars($suburb);
-$state          = htmlspecialchars($state);
-$postcode       = htmlspecialchars($postcode);
-$email          = htmlspecialchars($email);
-$phone          = htmlspecialchars($phone);
-$skills         = htmlspecialchars(implode(', ', $selectedSkills));
-$other_skills   = htmlspecialchars($other_skills);
+$suburb = htmlspecialchars($suburb);
+$state = htmlspecialchars($state);
+$postcode = htmlspecialchars($postcode);
+$email = htmlspecialchars($email);
+$phone = htmlspecialchars($phone);
+$skills = htmlspecialchars(implode(', ', $selectedSkills));
+$other_skills = htmlspecialchars($other_skills);
 
 $conn = new mysqli($host, $user, $password, $database);
 
@@ -162,10 +172,10 @@ $conn = new mysqli($host, $user, $password, $database);
 if ($conn->connect_errno) {
     error_log('EOI database connection failed: ' . $conn->connect_error);
 
-    $pageTitle   = 'CLAZITERIUM | Application error';
-    $pageStyles  = ['apply-style.css'];
+    $pageTitle = 'CLAZITERIUM | Application error';
+    $pageStyles = ['apply-style.css'];
     $inlineStyle = '';
-    $bodyClass   = '';
+    $bodyClass = '';
 
     include __DIR__ . '/includes/head.inc';
     include __DIR__ . '/includes/header.inc';
@@ -207,10 +217,10 @@ $createTableSQL = "CREATE TABLE IF NOT EXISTS eoi (
 if (!$conn->query($createTableSQL)) {
     error_log('EOI table creation failed: ' . $conn->error);
 
-    $pageTitle   = 'CLAZITERIUM | Application error';
-    $pageStyles  = ['apply-style.css'];
+    $pageTitle = 'CLAZITERIUM | Application error';
+    $pageStyles = ['apply-style.css'];
     $inlineStyle = '';
-    $bodyClass   = '';
+    $bodyClass = '';
 
     include __DIR__ . '/includes/head.inc';
     include __DIR__ . '/includes/header.inc';
@@ -236,10 +246,10 @@ $stmt = $conn->prepare($insertSQL);
 if ($stmt === false) {
     error_log('EOI statement preparation failed: ' . $conn->error);
 
-    $pageTitle   = 'CLAZITERIUM | Application error';
-    $pageStyles  = ['apply-style.css'];
+    $pageTitle = 'CLAZITERIUM | Application error';
+    $pageStyles = ['apply-style.css'];
     $inlineStyle = '';
-    $bodyClass   = '';
+    $bodyClass = '';
 
     include __DIR__ . '/includes/head.inc';
     include __DIR__ . '/includes/header.inc';
@@ -277,10 +287,10 @@ if (!$stmt->execute()) {
     error_log('EOI insert failed: ' . $stmt->error);
     $stmt->close();
 
-    $pageTitle   = 'CLAZITERIUM | Application error';
-    $pageStyles  = ['apply-style.css'];
+    $pageTitle = 'CLAZITERIUM | Application error';
+    $pageStyles = ['apply-style.css'];
     $inlineStyle = '';
-    $bodyClass   = '';
+    $bodyClass = '';
 
     include __DIR__ . '/includes/head.inc';
     include __DIR__ . '/includes/header.inc';
@@ -302,10 +312,10 @@ $stmt->close();
 $conn->close();
 
 
-$pageTitle   = 'CLAZITERIUM | Application received';
-$pageStyles  = ['apply-style.css'];
+$pageTitle = 'CLAZITERIUM | Application received';
+$pageStyles = ['apply-style.css'];
 $inlineStyle = '';
-$bodyClass   = '';
+$bodyClass = '';
 
 include __DIR__ . '/includes/head.inc';
 include __DIR__ . '/includes/header.inc';

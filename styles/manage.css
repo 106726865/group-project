@@ -1,4 +1,3 @@
-/* HR login and manage pages. Uses the shared colour variables. */
 .manage-page {
     width: min(100% - 2rem, 75rem);
     margin: 2rem auto;

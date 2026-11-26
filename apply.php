@@ -1,16 +1,16 @@
 <?php
-$pageTitle   = 'CLAZITERIUM | Apply';
-$pageStyles  = ['apply-style.css'];
-$inlineStyle = '.site-header nav a { text-wrap: balance; }';
+$pageTitle = "CLAZITERIUM | Apply";
+$pageStyles = ["apply-style.css"];
+$inlineStyle = ".site-header nav a { text-wrap: balance; }";
 
-include __DIR__ . '/includes/head.inc';
-include __DIR__ . '/includes/header.inc';
+include __DIR__ . "/includes/head.inc";
+include __DIR__ . "/includes/header.inc";
 ?>
 
   <main class="application-page">
     <header class="application-heading">
       <div>
-        <h1>MAKE YOUR MOVE<span>.</span></h1>
+        <h1>MAKE YOUR MOVE</h1>
         <p class="application-intro">Interested in a front-end developer or designer role? Tell us a little about yourself.</p>
       </div>
     </header>
@@ -123,4 +123,4 @@ include __DIR__ . '/includes/header.inc';
     </form>
   </main>
 
-<?php include __DIR__ . '/includes/footer.inc'; ?>
+<?php include __DIR__ . "/includes/footer.inc"; ?>

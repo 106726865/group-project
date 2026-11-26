@@ -1,5 +1,5 @@
 <?php
-$host = 'localhost';
-$user = 'root';
-$password = '';
-$database = 'claziterium';
+$host = "localhost";
+$user = "root";
+$password = "123";
+$database = "claziterium";

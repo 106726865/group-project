@@ -1,133 +1,4 @@
 <?php
-$databaseError = '';
-$memberContributions = [];
-
-require_once __DIR__ . '/settings.php';
-mysqli_report(MYSQLI_REPORT_OFF);
-$conn = new mysqli($host, $user, $password, $database);
-
-if ($conn->connect_errno) {
-    error_log('About page database connection failed: ' . $conn->connect_error);
-    $databaseError = 'Member contributions are temporarily unavailable.';
-} else {
-    if (!$conn->set_charset('utf8mb4')) {
-        error_log('About page database charset failed: ' . $conn->error);
-        $databaseError = 'Member contributions are temporarily unavailable.';
-    } else {
-        $createTableSQL = "CREATE TABLE IF NOT EXISTS member_contributions (
-            member_name VARCHAR(100) NOT NULL,
-            project_one_contribution TEXT NOT NULL,
-            project_two_contribution TEXT NOT NULL,
-            PRIMARY KEY (member_name)
-        )";
-
-        if (!$conn->query($createTableSQL)) {
-            error_log('Member contributions table creation failed: ' . $conn->error);
-            $databaseError = 'Member contributions are temporarily unavailable.';
-        } else {
-            $seedData = [
-                ['Đăng', 'Director, UI/UX Designer, Advisor', 'Implemented PHP and database functionality in jobs.php.'],
-                ['Tuấn Anh', 'UI/UX Designer', 'UI/UX Designer'],
-                ['Đức Đạt', 'Project Manager', 'Project Manager'],
-                ['Nhật Khang', 'Created the Jobs file.', 'Created settings.php and about.php in PHP.'],
-            ];
-            $seedStatement = $conn->prepare(
-                'INSERT IGNORE INTO member_contributions '
-                . '(member_name, project_one_contribution, project_two_contribution) '
-                . 'VALUES (?, ?, ?)',
-            );
-
-            if (!$seedStatement) {
-                error_log('Member contributions seed query failed: ' . $conn->error);
-                $databaseError = 'Member contributions are temporarily unavailable.';
-            } else {
-                foreach ($seedData as [$memberName, $projectOne, $projectTwo]) {
-                    $seedStatement->bind_param('sss', $memberName, $projectOne, $projectTwo);
-                    if (!$seedStatement->execute()) {
-                        error_log('Member contribution seed failed: ' . $seedStatement->error);
-                        $databaseError = 'Member contributions are temporarily unavailable.';
-                        break;
-                    }
-                }
-                $seedStatement->close();
-            }
-
-            if ($databaseError === '') {
-                $updateStatement = $conn->prepare(
-                    'UPDATE member_contributions '
-                    . 'SET project_one_contribution = ?, project_two_contribution = ? '
-                    . 'WHERE member_name = ? AND project_one_contribution = ? '
-                    . 'AND project_two_contribution = ?',
-                );
-
-                if (!$updateStatement) {
-                    error_log('Member contribution update query failed: ' . $conn->error);
-                    $databaseError = 'Member contributions are temporarily unavailable.';
-                } else {
-                    $legacyUpdates = [
-                        [
-                            'Nhật Khang',
-                            'UI/UX Designer',
-                            'UI/UX Designer',
-                            'Created the Jobs file.',
-                            'Created settings.php and about.php in PHP.',
-                        ],
-                        [
-                            'Đăng',
-                            'Director, UI/UX Designer, Advisor',
-                            'Director, UI/UX Designer, Advisor',
-                            'Director, UI/UX Designer, Advisor',
-                            'Implemented PHP and database functionality in jobs.php.',
-                        ],
-                    ];
-
-                    foreach ($legacyUpdates as [
-                        $legacyMember,
-                        $legacyProjectOne,
-                        $legacyProjectTwo,
-                        $projectOneContribution,
-                        $projectTwoContribution,
-                    ]) {
-                        $updateStatement->bind_param(
-                            'sssss',
-                            $projectOneContribution,
-                            $projectTwoContribution,
-                            $legacyMember,
-                            $legacyProjectOne,
-                            $legacyProjectTwo,
-                        );
-                        if (!$updateStatement->execute()) {
-                            error_log('Member contribution update failed: ' . $updateStatement->error);
-                            $databaseError = 'Member contributions are temporarily unavailable.';
-                            break;
-                        }
-                    }
-                    $updateStatement->close();
-                }
-            }
-        }
-
-        if ($databaseError === '') {
-            $result = $conn->query(
-                'SELECT member_name, project_one_contribution, project_two_contribution '
-                . 'FROM member_contributions',
-            );
-
-            if (!$result) {
-                error_log('Member contributions query failed: ' . $conn->error);
-                $databaseError = 'Member contributions are temporarily unavailable.';
-            } else {
-                while ($row = $result->fetch_assoc()) {
-                    $memberContributions[$row['member_name']] = $row;
-                }
-                $result->free();
-            }
-        }
-    }
-
-    $conn->close();
-}
-
 $pageTitle   = 'CLAZITERIUM | About';
 $pageStyles  = ['about-styles.css'];
 $inlineStyle = '.site-header nav a { text-wrap: balance; }';
@@ -158,9 +29,6 @@ include __DIR__ . '/includes/header.inc';
         <figcaption>the group</figcaption>
       </figure>
       <h2 class="members-heading">Meet the members</h2>
-      <?php if ($databaseError !== ''): ?>
-        <p><?= htmlspecialchars($databaseError, ENT_QUOTES, 'UTF-8') ?></p>
-      <?php endif; ?>
       <div class="member-list">
         <article class="member-card">
           <div class="member-image">
@@ -176,8 +44,6 @@ include __DIR__ . '/includes/header.inc';
             <blockquote>
               <p>Đôi khi buông bỏ lại tốt hơn.</p>
               <p class="translate">Sometimes it's better to let go.</p>
-              <p><strong>Project 1:</strong> <?= htmlspecialchars($memberContributions['Đăng']['project_one_contribution'] ?? '', ENT_QUOTES, 'UTF-8') ?></p>
-              <p><strong>Project 2:</strong> <?= htmlspecialchars($memberContributions['Đăng']['project_two_contribution'] ?? '', ENT_QUOTES, 'UTF-8') ?></p>
             </blockquote>
           </div>
         </article>
@@ -194,8 +60,6 @@ include __DIR__ . '/includes/header.inc';
             <blockquote>
               <p>Không quan trọng bạn sinh ra ở đâu hay bắt đầu ở đâu. Điều quan trọng là bạn sẵn sàng vươn lên như thế nào.</p>
               <p class="translate">It doesn't matter where you were born or where you started. What matters is how hard you're willing to rise.</p>
-              <p><strong>Project 1:</strong> <?= htmlspecialchars($memberContributions['Tuấn Anh']['project_one_contribution'] ?? '', ENT_QUOTES, 'UTF-8') ?></p>
-              <p><strong>Project 2:</strong> <?= htmlspecialchars($memberContributions['Tuấn Anh']['project_two_contribution'] ?? '', ENT_QUOTES, 'UTF-8') ?></p>
             </blockquote>
           </div>
         </article>
@@ -212,8 +76,6 @@ include __DIR__ . '/includes/header.inc';
             <blockquote>
               <p>Hãy mạnh mẽ, nhưng đủ mạnh mẽ để nhẹ nhàng.</p>
               <p class="translate">Be strong, but strong enough to be gentle.</p>
-              <p><strong>Project 1:</strong> <?= htmlspecialchars($memberContributions['Đức Đạt']['project_one_contribution'] ?? '', ENT_QUOTES, 'UTF-8') ?></p>
-              <p><strong>Project 2:</strong> <?= htmlspecialchars($memberContributions['Đức Đạt']['project_two_contribution'] ?? '', ENT_QUOTES, 'UTF-8') ?></p>
             </blockquote>
           </div>
         </article>
@@ -230,8 +92,6 @@ include __DIR__ . '/includes/header.inc';
             <blockquote>
               <p>Cách duy nhất để làm việc xuất sắc là yêu thích những gì bạn làm.</p>
               <p class="translate">The only way to do great work is to love what you do.</p>
-              <p><strong>Project 1:</strong> <?= htmlspecialchars($memberContributions['Nhật Khang']['project_one_contribution'] ?? '', ENT_QUOTES, 'UTF-8') ?></p>
-              <p><strong>Project 2:</strong> <?= htmlspecialchars($memberContributions['Nhật Khang']['project_two_contribution'] ?? '', ENT_QUOTES, 'UTF-8') ?></p>
             </blockquote>
           </div>
         </article>

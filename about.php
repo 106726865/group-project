@@ -204,214 +204,229 @@ include __DIR__ . '/includes/head.inc';
 include __DIR__ . '/includes/header.inc';
 ?>
 
-  <main class="about-page">
+<main class="about-page">
     <section class="about-intro">
-      <div class="about-copy">
-        <h1>About us</h1>
-        <p>We’re a creative agency making thoughtful websites, brands, and digital content for our clients.</p>
-      </div>
-      <dl class="group-details">
-        <div><dt>Group</dt><dd>The Comp Sci Nerds (TCSN)</dd></div>
-        <div><dt>Class day</dt><dd>Thursday</dd></div>
-        <div><dt>Class time</dt><dd>7:00 AM – 10:00 AM</dd></div>
-      </dl>
+        <div class="about-copy">
+            <h1>About us</h1>
+            <p>We’re a creative agency making thoughtful websites, brands, and digital content for our clients.</p>
+        </div>
+        <dl class="group-details">
+            <div>
+                <dt>Group</dt>
+                <dd>The Comp Sci Nerds (TCSN)</dd>
+            </div>
+            <div>
+                <dt>Class day</dt>
+                <dd>Thursday</dd>
+            </div>
+            <div>
+                <dt>Class time</dt>
+                <dd>7:00 AM – 10:00 AM</dd>
+            </div>
+        </dl>
     </section>
 
     <section class="team-section">
-      <div class="section-heading">
-        <h2 id="team-heading">Our team</h2>
-      </div>
-      <figure>
-        <img src="images/teampic.png" width="1200" height="675" alt="The CLAZITERIUM team" class="team-picture" style="filter: grayscale();">
-        <figcaption>the group</figcaption>
-      </figure>
-      <h2 class="members-heading">Meet the members</h2>
-      <div class="member-list">
-        <?php if ($databaseError !== ''): ?>
-          <article class="member-card">
-          <div class="member-image">
-            <img src="images/dang.png" width="300" height="450" alt="Đăng">
-            <div class="role-list">
-              <p class="role">Director</p>
-              <p class="role">UI/UX Designer</p>
-              <p class="role">Advisor</p>
-            </div>
-          </div>
-          <div class="member-details">
-            <h3>Đăng</h3>
-            <blockquote>
-              <p>Đôi khi buông bỏ lại tốt hơn.</p>
-              <p class="translate">Sometimes it's better to let go.</p>
-            </blockquote>
-            <div class="member-contributions">
-              <h4>Project contributions</h4>
-              <p><strong>First project:</strong> UI/UX design of every page
-CSS animation and dynamic layout</p>
-              <p><strong>Second project:</strong> Create new files + subfolders
-PHP and database implementation
-jobs.php</p>
-            </div>
-          </div>
-          </article>
-
-          <article class="member-card">
-          <div class="member-image">
-            <img src="images/ta.png" width="300" height="450" alt="Tuấn Anh">
-            <div class="role-list">
-              <p class="role">UI/UX Designer</p>
-            </div>
-          </div>
-          <div class="member-details">
-            <h3>Tuấn Anh</h3>
-            <blockquote>
-              <p>Không quan trọng bạn sinh ra ở đâu hay bắt đầu ở đâu. Điều quan trọng là bạn sẵn sàng vươn lên như thế nào.</p>
-              <p class="translate">It doesn't matter where you were born or where you started. What matters is how hard you're willing to rise.</p>
-            </blockquote>
-            <div class="member-contributions">
-              <h4>Project contributions</h4>
-              <p><strong>First project:</strong> About page</p>
-              <p><strong>Second project:</strong> Create a table for Expression of Interest (process_eoi.php)
-Management (manage.php)</p>
-            </div>
-          </div>
-          </article>
-
-          <article class="member-card">
-          <div class="member-image">
-            <img src="images/dat.png" width="300" height="450" alt="Đức Đạt">
-            <div class="role-list">
-              <p class="role">Project Manager</p>
-            </div>
-          </div>
-          <div class="member-details">
-            <h3>Đức Đạt</h3>
-            <blockquote>
-              <p>Hãy mạnh mẽ, nhưng đủ mạnh mẽ để nhẹ nhàng.</p>
-              <p class="translate">Be strong, but strong enough to be gentle.</p>
-            </blockquote>
-            <div class="member-contributions">
-              <h4>Project contributions</h4>
-              <p><strong>First project:</strong> Apply page</p>
-              <p><strong>Second project:</strong> Apply page (apply.php + process_eoi.php)</p>
-            </div>
-          </div>
-          </article>
-
-          <article class="member-card">
-          <div class="member-image">
-            <img src="images/khang.png" width="300" height="450" alt="Nhật Khang">
-            <div class="role-list">
-              <p class="role">UI/UX Designer</p>
-            </div>
-          </div>
-          <div class="member-details">
-            <h3>Nhật Khang</h3>
-            <blockquote>
-              <p>Cách duy nhất để làm việc xuất sắc là yêu thích những gì bạn làm.</p>
-              <p class="translate">The only way to do great work is to love what you do.</p>
-            </blockquote>
-            <div class="member-contributions">
-              <h4>Project contributions</h4>
-              <p><strong>First project:</strong> Jobs page</p>
-              <p><strong>Second project:</strong> Dynamic updates (about.php)
-settings.php</p>
-            </div>
-          </div>
-          </article>--
-        <?php else: ?>
-          <?php foreach ($members as $member): ?>
-            <?php $memberRoles = preg_split('/\R/', $member['roles']) ?: []; ?>
-            <article class="member-card">
-              <div class="member-image">
-                <img src="images/<?= htmlspecialchars($member['image_name']) ?>" width="300" height="450" alt="<?= htmlspecialchars($member['member_name']) ?>">
-                <div class="role-list">
-                  <?php foreach ($memberRoles as $role): ?>
-                    <?php if (trim($role) !== ''): ?>
-                      <p class="role"><?= htmlspecialchars(trim($role)) ?></p>
-                    <?php endif; ?>
-                  <?php endforeach; ?>
-                </div>
-              </div>
-              <div class="member-details">
-                <h3><?= htmlspecialchars($member['member_name']) ?></h3>
-                <blockquote>
-                  <p><?= htmlspecialchars($member['quote_vietnamese']) ?></p>
-                  <p class="translate"><?= htmlspecialchars($member['quote_translation']) ?></p>
-                </blockquote>
-                <div class="member-contributions">
-                  <h4>Project contributions</h4>
-                  <p><strong>First project:</strong> <?= htmlspecialchars($member['first_project_contribution']) ?></p>
-                  <p><strong>Second project:</strong> <?= nl2br(htmlspecialchars($member['second_project_contribution'])) ?></p>
-                </div>
-              </div>
-            </article>
-          <?php endforeach; ?>
-        <?php endif; ?>
-      </div>
-      <section class="facts-section">
-        <h2 id="contributions-heading">Project contributions</h2>
-        <div class="thisgoob">
-          <table>
-            <thead>
-              <tr>
-                <th scope="col">Member</th>
-                <th scope="col">First project</th>
-                <th scope="col">Second project</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php if ($databaseError === ''): ?>
-                <?php foreach ($members as $member): ?>
-                  <tr>
-                    <th scope="row"><?= htmlspecialchars($member['member_name']) ?></th>
-                    <td><?= nl2br(htmlspecialchars($member['first_project_contribution'])) ?></td>
-                    <td><?= nl2br(htmlspecialchars($member['second_project_contribution'])) ?></td>
-                  </tr>
-                <?php endforeach; ?>
-              <?php else: ?>
-                <tr><th scope="row">Đăng</th><td>UI/UX design of every page<br>CSS animation and dynamic layout</td><td>Create new files + subfolders<br>PHP and database implementation<br>jobs.php</td></tr>
-                <tr><th scope="row">Đức Đạt</th><td>Apply page</td><td>Apply page (apply.php + process_eoi.php)</td></tr>
-                <tr><th scope="row">Nhật Khang</th><td>Jobs page</td><td>Dynamic updates (about.php)<br>settings.php</td></tr>
-                <tr><th scope="row">Tuấn Anh</th><td>About page</td><td>Create a table for Expression of Interest (process_eoi.php)<br>Management (manage.php)</td></tr>
-              <?php endif; ?>
-            </tbody>
-          </table>
+        <div class="section-heading">
+            <h2 id="team-heading">Our team</h2>
         </div>
-      </section>
+        <figure>
+            <img src="images/teampic.png" width="1200" height="675" alt="The CLAZITERIUM team" class="team-picture" style="filter: grayscale();">
+            <figcaption>the group</figcaption>
+        </figure>
+        <h2 class="members-heading">Meet the members</h2>
+        <div class="member-list">
+            <?php if ($databaseError !== ''): ?>
+                <article class="member-card">
+                    <div class="member-image">
+                        <img src="images/dang.png" width="300" height="450" alt="Đăng">
+                        <div class="role-list">
+                            <p class="role">Director</p>
+                            <p class="role">UI/UX Designer</p>
+                            <p class="role">Advisor</p>
+                        </div>
+                    </div>
+                    <div class="member-details">
+                        <h3>Đăng</h3>
+                        <blockquote>
+                            <p>Đôi khi buông bỏ lại tốt hơn.</p>
+                            <p class="translate">Sometimes it's better to let go.</p>
+                        </blockquote>
+                    </div>
+                </article>
+
+                <article class="member-card">
+                    <div class="member-image">
+                        <img src="images/ta.png" width="300" height="450" alt="Tuấn Anh">
+                        <div class="role-list">
+                            <p class="role">UI/UX Designer</p>
+                        </div>
+                    </div>
+                    <div class="member-details">
+                        <h3>Tuấn Anh</h3>
+                        <blockquote>
+                            <p>Không quan trọng bạn sinh ra ở đâu hay bắt đầu ở đâu. Điều quan trọng là bạn sẵn sàng vươn lên như thế nào.</p>
+                            <p class="translate">It doesn't matter where you were born or where you started. What matters is how hard you're willing to rise.</p>
+                        </blockquote>
+                    </div>
+                </article>
+
+                <article class="member-card">
+                    <div class="member-image">
+                        <img src="images/dat.png" width="300" height="450" alt="Đức Đạt">
+                        <div class="role-list">
+                            <p class="role">Project Manager</p>
+                        </div>
+                    </div>
+                    <div class="member-details">
+                        <h3>Đức Đạt</h3>
+                        <blockquote>
+                            <p>Hãy mạnh mẽ, nhưng đủ mạnh mẽ để nhẹ nhàng.</p>
+                            <p class="translate">Be strong, but strong enough to be gentle.</p>
+                        </blockquote>
+                    </div>
+                </article>
+
+                <article class="member-card">
+                    <div class="member-image">
+                        <img src="images/khang.png" width="300" height="450" alt="Nhật Khang">
+                        <div class="role-list">
+                            <p class="role">UI/UX Designer</p>
+                        </div>
+                    </div>
+                    <div class="member-details">
+                        <h3>Nhật Khang</h3>
+                        <blockquote>
+                            <p>Cách duy nhất để làm việc xuất sắc là yêu thích những gì bạn làm.</p>
+                            <p class="translate">The only way to do great work is to love what you do.</p>
+                        </blockquote>
+                    </div>
+                </article>--
+            <?php else: ?>
+                <?php foreach ($members as $member): ?>
+                    <?php $memberRoles = preg_split('/\R/', $member['roles']) ?: []; ?>
+                    <article class="member-card">
+                        <div class="member-image">
+                            <img src="images/<?= htmlspecialchars($member['image_name']) ?>" width="300" height="450" alt="<?= htmlspecialchars($member['member_name']) ?>">
+                            <div class="role-list">
+                                <?php foreach ($memberRoles as $role): ?>
+                                    <?php if (trim($role) !== ''): ?>
+                                        <p class="role"><?= htmlspecialchars(trim($role)) ?></p>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
+                        <div class="member-details">
+                            <h3><?= htmlspecialchars($member['member_name']) ?></h3>
+                            <blockquote>
+                                <p><?= htmlspecialchars($member['quote_vietnamese']) ?></p>
+                                <p class="translate"><?= htmlspecialchars($member['quote_translation']) ?></p>
+                            </blockquote>
+                        </div>
+                    </article>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </div>
+        <section class="facts-section">
+            <h2 id="contributions-heading">Project contributions</h2>
+            <div class="thisgoob">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Member</th>
+                            <th scope="col">First project</th>
+                            <th scope="col">Second project</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php if ($databaseError === ''): ?>
+                            <?php foreach ($members as $member): ?>
+                                <tr>
+                                    <th scope="row"><?= htmlspecialchars($member['member_name']) ?></th>
+                                    <td><?= nl2br(htmlspecialchars($member['first_project_contribution'])) ?></td>
+                                    <td><?= nl2br(htmlspecialchars($member['second_project_contribution'])) ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <tr>
+                                <th scope="row">Đăng</th>
+                                <td>UI/UX design of every page<br>CSS animation and dynamic layout</td>
+                                <td>Create new files + subfolders<br>PHP and database implementation<br>jobs.php</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Đức Đạt</th>
+                                <td>Apply page</td>
+                                <td>Apply page (apply.php + process_eoi.php)</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Nhật Khang</th>
+                                <td>Jobs page</td>
+                                <td>Dynamic updates (about.php)<br>settings.php</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Tuấn Anh</th>
+                                <td>About page</td>
+                                <td>Create a table for Expression of Interest (process_eoi.php)<br>Management (manage.php)</td>
+                            </tr>
+                        <?php endif; ?>
+                    </tbody>
+                </table>
+            </div>
+        </section>
     </section>
 
     <section class="facts-section">
-      <h2 id="facts-heading">Fun facts</h2>
-      <div class="thisgoob">
-        <table>
-          <thead>
-            <tr>
-              <th scope="col">Member</th>
-              <th scope="col">Dream job</th>
-              <th scope="col">Favorite dish</th>
-              <th scope="col">Hometown</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php if ($databaseError === ''): ?>
-              <?php foreach ($members as $member): ?>
-                <tr>
-                  <th scope="row"><?= htmlspecialchars($member['fun_fact_name']) ?></th>
-                  <td><?= htmlspecialchars($member['dream_job']) ?></td>
-                  <td><?= htmlspecialchars($member['favorite_dish']) ?></td>
-                  <td><?= htmlspecialchars($member['hometown']) ?></td>
-                </tr>
-              <?php endforeach; ?>
-            <?php else: ?>
-              <tr><th scope="row">Đạt</th><td>Software Engineer</td><td>Pizza</td><td>HCM city</td></tr>
-              <tr><th scope="row">Khang</th><td>Cybersecurity Engineer &amp; Pen-tester</td><td>Japanese curry</td><td>HCM city</td></tr>
-              <tr><th scope="row">Đăng</th><td>Software Security Engineer, Game Developer, VFX artist &amp; graphics programmer, jack of all trades</td><td>Water</td><td>Mars</td></tr>
-              <tr><th scope="row">Tuấn Anh</th><td>Security Engineer</td><td>Hot Pot</td><td>Dong Nai province</td></tr>
-            <?php endif; ?>
-          </tbody>
-        </table>
-      </div>
+        <h2 id="facts-heading">Fun facts</h2>
+        <div class="thisgoob">
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Member</th>
+                        <th scope="col">Dream job</th>
+                        <th scope="col">Favorite dish</th>
+                        <th scope="col">Hometown</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php if ($databaseError === ''): ?>
+                        <?php foreach ($members as $member): ?>
+                            <tr>
+                                <th scope="row"><?= htmlspecialchars($member['fun_fact_name']) ?></th>
+                                <td><?= htmlspecialchars($member['dream_job']) ?></td>
+                                <td><?= htmlspecialchars($member['favorite_dish']) ?></td>
+                                <td><?= htmlspecialchars($member['hometown']) ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <tr>
+                            <th scope="row">Đạt</th>
+                            <td>Software Engineer</td>
+                            <td>Pizza</td>
+                            <td>HCM city</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Khang</th>
+                            <td>Cybersecurity Engineer &amp; Pen-tester</td>
+                            <td>Japanese curry</td>
+                            <td>HCM city</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Đăng</th>
+                            <td>Software Security Engineer, Game Developer, VFX artist &amp; graphics programmer, jack of all trades</td>
+                            <td>Water</td>
+                            <td>Mars</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Tuấn Anh</th>
+                            <td>Security Engineer</td>
+                            <td>Hot Pot</td>
+                            <td>Dong Nai province</td>
+                        </tr>
+                    <?php endif; ?>
+                </tbody>
+            </table>
+        </div>
     </section>
-  </main>
+</main>
 
 <?php include __DIR__ . '/includes/footer.inc'; ?>

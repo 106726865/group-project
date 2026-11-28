@@ -53,6 +53,8 @@ if (!function_exists('mysqli_report')) {
                     'Water',
                     'Mars',
                     'Đăng',
+                    "UI/UX design of every page\nCSS animation and dynamic layout",
+                    '',
                 ],
                 [
                     'tu-anh',
@@ -65,6 +67,8 @@ if (!function_exists('mysqli_report')) {
                     'Hot Pot',
                     'Dong Nai province',
                     'Tuấn Anh',
+                    'About page',
+                    '',
                 ],
                 [
                     'duc-dat',
@@ -77,6 +81,8 @@ if (!function_exists('mysqli_report')) {
                     'Pizza',
                     'HCM city',
                     'Đạt',
+                    'Apply page',
+                    '',
                 ],
                 [
                     'nhat-khang',
@@ -89,6 +95,8 @@ if (!function_exists('mysqli_report')) {
                     'Japanese curry',
                     'HCM city',
                     'Khang',
+                    'Jobs page',
+                    '',
                 ],
             ];
 
@@ -96,7 +104,7 @@ if (!function_exists('mysqli_report')) {
                 member_id, member_name, image_name, roles, quote_vietnamese,
                 quote_translation, dream_job, favorite_dish, hometown, fun_fact_name,
                 first_project_contribution, second_project_contribution
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "", "")
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             ON DUPLICATE KEY UPDATE
                 member_name = VALUES(member_name),
                 image_name = VALUES(image_name),
@@ -106,7 +114,9 @@ if (!function_exists('mysqli_report')) {
                 dream_job = VALUES(dream_job),
                 favorite_dish = VALUES(favorite_dish),
                 hometown = VALUES(hometown),
-                fun_fact_name = VALUES(fun_fact_name)';
+                fun_fact_name = VALUES(fun_fact_name),
+                first_project_contribution = VALUES(first_project_contribution),
+                second_project_contribution = VALUES(second_project_contribution)';
 
             $insertStatement = $conn->prepare($insertSQL);
 
@@ -115,7 +125,7 @@ if (!function_exists('mysqli_report')) {
                 $databaseError = 'Team information is temporarily unavailable.';
             } else {
                 $insertStatement->bind_param(
-                    'ssssssssss',
+                    'ssssssssssss',
                     $memberId,
                     $memberName,
                     $imageName,
@@ -125,7 +135,9 @@ if (!function_exists('mysqli_report')) {
                     $dreamJob,
                     $favoriteDish,
                     $hometown,
-                    $funFactName
+                    $funFactName,
+                    $firstProjectContribution,
+                    $secondProjectContribution
                 );
 
                 foreach ($memberData as $member) {
@@ -140,6 +152,8 @@ if (!function_exists('mysqli_report')) {
                         $favoriteDish,
                         $hometown,
                         $funFactName,
+                        $firstProjectContribution,
+                        $secondProjectContribution,
                     ] = $member;
 
                     if (!$insertStatement->execute()) {
@@ -229,6 +243,12 @@ include __DIR__ . '/includes/header.inc';
               <p>Đôi khi buông bỏ lại tốt hơn.</p>
               <p class="translate">Sometimes it's better to let go.</p>
             </blockquote>
+            <div class="member-contributions">
+              <h4>Project contributions</h4>
+              <p><strong>First project:</strong> UI/UX design of every page
+CSS animation and dynamic layout</p>
+              <p><strong>Second project:</strong></p>
+            </div>
           </div>
           </article>
 
@@ -245,6 +265,11 @@ include __DIR__ . '/includes/header.inc';
               <p>Không quan trọng bạn sinh ra ở đâu hay bắt đầu ở đâu. Điều quan trọng là bạn sẵn sàng vươn lên như thế nào.</p>
               <p class="translate">It doesn't matter where you were born or where you started. What matters is how hard you're willing to rise.</p>
             </blockquote>
+            <div class="member-contributions">
+              <h4>Project contributions</h4>
+              <p><strong>First project:</strong> About page</p>
+              <p><strong>Second project:</strong></p>
+            </div>
           </div>
           </article>
 
@@ -261,6 +286,11 @@ include __DIR__ . '/includes/header.inc';
               <p>Hãy mạnh mẽ, nhưng đủ mạnh mẽ để nhẹ nhàng.</p>
               <p class="translate">Be strong, but strong enough to be gentle.</p>
             </blockquote>
+            <div class="member-contributions">
+              <h4>Project contributions</h4>
+              <p><strong>First project:</strong> Apply page</p>
+              <p><strong>Second project:</strong></p>
+            </div>
           </div>
           </article>
 
@@ -277,6 +307,11 @@ include __DIR__ . '/includes/header.inc';
               <p>Cách duy nhất để làm việc xuất sắc là yêu thích những gì bạn làm.</p>
               <p class="translate">The only way to do great work is to love what you do.</p>
             </blockquote>
+            <div class="member-contributions">
+              <h4>Project contributions</h4>
+              <p><strong>First project:</strong> Jobs page</p>
+              <p><strong>Second project:</strong></p>
+            </div>
           </div>
           </article>
         <?php else: ?>
@@ -309,6 +344,36 @@ include __DIR__ . '/includes/header.inc';
           <?php endforeach; ?>
         <?php endif; ?>
       </div>
+      <section class="facts-section">
+        <h2 id="contributions-heading">Project contributions</h2>
+        <div class="thisgoob">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Member</th>
+                <th scope="col">First project</th>
+                <th scope="col">Second project</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php if ($databaseError === ''): ?>
+                <?php foreach ($members as $member): ?>
+                  <tr>
+                    <th scope="row"><?= htmlspecialchars($member['member_name']) ?></th>
+                    <td><?= nl2br(htmlspecialchars($member['first_project_contribution'])) ?></td>
+                    <td><?= htmlspecialchars($member['second_project_contribution']) ?></td>
+                  </tr>
+                <?php endforeach; ?>
+              <?php else: ?>
+                <tr><th scope="row">Đăng</th><td>UI/UX design of every page<br>CSS animation and dynamic layout</td><td></td></tr>
+                <tr><th scope="row">Đức Đạt</th><td>Apply page</td><td></td></tr>
+                <tr><th scope="row">Nhật Khang</th><td>Jobs page</td><td></td></tr>
+                <tr><th scope="row">Tuấn Anh</th><td>About page</td><td></td></tr>
+              <?php endif; ?>
+            </tbody>
+          </table>
+        </div>
+      </section>
     </section>
 
     <section class="facts-section">

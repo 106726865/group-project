@@ -239,6 +239,7 @@
 
 .member-contributions p {
   margin: 0;
+  white-space: pre-line;
 }
 
 .facts-section {

@@ -54,7 +54,7 @@ if (!function_exists('mysqli_report')) {
                     'Mars',
                     'Đăng',
                     "UI/UX design of every page\nCSS animation and dynamic layout",
-                    '',
+                    "Create new files + subfolders\nPHP and database implementation\njobs.php",
                 ],
                 [
                     'tu-anh',
@@ -68,7 +68,7 @@ if (!function_exists('mysqli_report')) {
                     'Dong Nai province',
                     'Tuấn Anh',
                     'About page',
-                    '',
+                    "Create a table for Expression of Interest (process_eoi.php)\nManagement (manage.php)",
                 ],
                 [
                     'duc-dat',
@@ -82,7 +82,7 @@ if (!function_exists('mysqli_report')) {
                     'HCM city',
                     'Đạt',
                     'Apply page',
-                    '',
+                    'Apply page (apply.php + process_eoi.php)',
                 ],
                 [
                     'nhat-khang',
@@ -96,7 +96,7 @@ if (!function_exists('mysqli_report')) {
                     'HCM city',
                     'Khang',
                     'Jobs page',
-                    '',
+                    "Dynamic updates (about.php)\nsettings.php",
                 ],
             ];
 
@@ -247,7 +247,9 @@ include __DIR__ . '/includes/header.inc';
               <h4>Project contributions</h4>
               <p><strong>First project:</strong> UI/UX design of every page
 CSS animation and dynamic layout</p>
-              <p><strong>Second project:</strong></p>
+              <p><strong>Second project:</strong> Create new files + subfolders
+PHP and database implementation
+jobs.php</p>
             </div>
           </div>
           </article>
@@ -268,7 +270,8 @@ CSS animation and dynamic layout</p>
             <div class="member-contributions">
               <h4>Project contributions</h4>
               <p><strong>First project:</strong> About page</p>
-              <p><strong>Second project:</strong></p>
+              <p><strong>Second project:</strong> Create a table for Expression of Interest (process_eoi.php)
+Management (manage.php)</p>
             </div>
           </div>
           </article>
@@ -289,7 +292,7 @@ CSS animation and dynamic layout</p>
             <div class="member-contributions">
               <h4>Project contributions</h4>
               <p><strong>First project:</strong> Apply page</p>
-              <p><strong>Second project:</strong></p>
+              <p><strong>Second project:</strong> Apply page (apply.php + process_eoi.php)</p>
             </div>
           </div>
           </article>
@@ -310,10 +313,11 @@ CSS animation and dynamic layout</p>
             <div class="member-contributions">
               <h4>Project contributions</h4>
               <p><strong>First project:</strong> Jobs page</p>
-              <p><strong>Second project:</strong></p>
+              <p><strong>Second project:</strong> Dynamic updates (about.php)
+settings.php</p>
             </div>
           </div>
-          </article>
+          </article>--
         <?php else: ?>
           <?php foreach ($members as $member): ?>
             <?php $memberRoles = preg_split('/\R/', $member['roles']) ?: []; ?>
@@ -337,7 +341,7 @@ CSS animation and dynamic layout</p>
                 <div class="member-contributions">
                   <h4>Project contributions</h4>
                   <p><strong>First project:</strong> <?= htmlspecialchars($member['first_project_contribution']) ?></p>
-                  <p><strong>Second project:</strong> <?= htmlspecialchars($member['second_project_contribution']) ?></p>
+                  <p><strong>Second project:</strong> <?= nl2br(htmlspecialchars($member['second_project_contribution'])) ?></p>
                 </div>
               </div>
             </article>
@@ -361,14 +365,14 @@ CSS animation and dynamic layout</p>
                   <tr>
                     <th scope="row"><?= htmlspecialchars($member['member_name']) ?></th>
                     <td><?= nl2br(htmlspecialchars($member['first_project_contribution'])) ?></td>
-                    <td><?= htmlspecialchars($member['second_project_contribution']) ?></td>
+                    <td><?= nl2br(htmlspecialchars($member['second_project_contribution'])) ?></td>
                   </tr>
                 <?php endforeach; ?>
               <?php else: ?>
-                <tr><th scope="row">Đăng</th><td>UI/UX design of every page<br>CSS animation and dynamic layout</td><td></td></tr>
-                <tr><th scope="row">Đức Đạt</th><td>Apply page</td><td></td></tr>
-                <tr><th scope="row">Nhật Khang</th><td>Jobs page</td><td></td></tr>
-                <tr><th scope="row">Tuấn Anh</th><td>About page</td><td></td></tr>
+                <tr><th scope="row">Đăng</th><td>UI/UX design of every page<br>CSS animation and dynamic layout</td><td>Create new files + subfolders<br>PHP and database implementation<br>jobs.php</td></tr>
+                <tr><th scope="row">Đức Đạt</th><td>Apply page</td><td>Apply page (apply.php + process_eoi.php)</td></tr>
+                <tr><th scope="row">Nhật Khang</th><td>Jobs page</td><td>Dynamic updates (about.php)<br>settings.php</td></tr>
+                <tr><th scope="row">Tuấn Anh</th><td>About page</td><td>Create a table for Expression of Interest (process_eoi.php)<br>Management (manage.php)</td></tr>
               <?php endif; ?>
             </tbody>
           </table>

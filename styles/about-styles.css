@@ -218,6 +218,30 @@
   font-style: italic;
 }
 
+.member-contributions {
+  display: grid;
+  gap: 0.35rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--border);
+  color: var(--text);
+  font-size: 0.72rem;
+  line-height: 1.45;
+}
+
+.member-contributions h4 {
+  margin: 0;
+  color: var(--header);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.member-contributions p {
+  margin: 0;
+  white-space: pre-line;
+}
+
 .facts-section {
   display: grid;
   gap: 0.85rem;
